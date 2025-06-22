@@ -1,0 +1,37 @@
+*{
+    margin: 0%;
+}
+.content{
+    display: flex;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('home_pic.jpg');
+    background-size: cover;
+}
+
+
+.login{
+    background-color: green;
+    width: 200px;
+    height: 60px;
+    border-radius: 50px;
+    margin: 10px;
+}
+.register{
+    background-color: #ac9d0e;
+    width: 200px;
+    height: 60px;
+    border-radius: 50px;
+    margin: 10px;
+}
+
+.footerr{
+    bottom: 0%;
+    position: static;
+    text-align: center;
+    width: 100%;
+    background-color: rgb(26, 26, 71);
+}
