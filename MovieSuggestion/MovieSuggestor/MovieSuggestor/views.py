@@ -15,7 +15,7 @@ def register(request):
             user.set_password(form.cleaned_data['password1'])
             user.save()
             login(request, user)
-            return redirect('index.html')
+            return redirect('home')
     else:
         form = UserRegistrationForm()
 
