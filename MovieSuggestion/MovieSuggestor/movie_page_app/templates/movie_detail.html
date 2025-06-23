@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <div class="MovieName" style=" font-weight: bold;  margin: 20px;">
+        <h1 style = >{{movie.name}}</h1>
+    </div>
+    <div class="video_image" style = " display: flex; justify-content: space-between ; margin:  20px;" > 
+        <div class="video">
+            <iframe width="860" height="515" src="https://www.youtube.com/embed/{{movie.video_url }}" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"  allowfullscreen></iframe>
+        </div>
+        <div class="card" style="width: 18rem;">
+                <img src="{{movie.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{movie.name}}</h5>
+                    <p class="card-text">rating</p>
+                    <p class="card-text">Released in {{movie.released_year}}</p>
+                </div>
+        </div>
+    </div>
+    <div class="offcanvas-body">
+        {{movie.description}}
+    </div>
+</div>
+{% endblock %}

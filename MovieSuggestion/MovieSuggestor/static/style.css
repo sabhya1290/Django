@@ -34,3 +34,7 @@
     width: 100%;
     background-color: rgb(26, 26, 71);
 }
+
+.video_image{
+    display: flex;
+}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div>
+        <h1>Welcome to MovieSuggestor</h1>
+    </div>
+    {% for movie in movies %}
+    <div class="content" style="display: inline-block; margin: 20px; height: inherit; ">
+        <div class="card" style="width: 18rem;">
+            <img src="{{movie.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{movie.name}}</h5>
+                <p class="card-text">rating</p>
+                <p class="card-text">Released in {{movie.released_year}}</p>
+                <a href="{% url 'movie_detail' movie.id %}" class="btn btn-primary">More info</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
