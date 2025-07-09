@@ -3,12 +3,15 @@
 <div id="heading" class="">
     <h1 class="text-3xl font-bold text-[#DCD7C9] m-4">Top Stories</h1>
 </div>
-<div id="articles" class="">
+<div id="articles" class="flex flex-row gap-4">
     {% for article in articles %}
-    <div class="">
+    <div class="flex flex-col gap-4">
+        <img src="{{ article.urlToImage }}" alt="" height="400px" width="400px" class="rounded-lg">
         <h2 class="text-2xl font-bold text-[#DCD7C9] m-4">{{ article.title }}</h2>
         <p class="text-[#DCD7C9] m-4">{{ article.description }}</p>
+        <a href="{{ article.url }}" class="text-[#DCD7C9] m-4">Read More</a>
     </div>
+
     {% endfor %}
 </div>
 {% endblock %}
