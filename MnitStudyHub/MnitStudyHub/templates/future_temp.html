@@ -1,0 +1,201 @@
+{% load static tailwind_tags %}
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  {% tailwind_css %}
+  <body>
+    
+    <div class="text-black bg-white m-4 p-2.5">
+      <h1 class="text-2xl font-bold text-600 m-2.5 ">This template for future </h1>
+      <p class="m-2.5">If I see a good response and interest from users, I’ll go ahead and implement this full template. It depends on how many people are actively using the platform.</p>
+      <div id="contanct" class="m-4">
+        <p>You can contact me on(don't forget to follow me😉) :-</p>
+        <div id="logo" class="m-0.5 text-2xl">
+          <a href="https://www.instagram.com/sabhya1290" class="fa fa-instagram text-red-500 m-2 text-2xl"></a>
+          <a href="https://github.com/sabhya1290" class="fa fa-Github  text-2xl bg-white text-black"></a>
+          <a href="https://www.linkedin.com/in/sabhya-singh-9629b7324" class="fa fa-linkedin m-2 text-2xl text-blue-500"></a>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <div id="future" class="flex items-center justify-center h-screen">
+        </div>
+        <!--for fixing nav bar fixed top-0 left-0 w-full z-50  -->
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f5] bg-white px-10 py-3">
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-[#111418]">
+              <div class="size-4">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">MnitStudyHub</h2>
+            </div>
+            <div class="flex items-center gap-9">
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Home</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Explore</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Upload</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">My Library</a>
+            </div>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <label class="flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-[#60758a] flex border-none bg-[#f0f2f5] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  placeholder="Search"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f5] focus:border-none h-full placeholder:text-[#60758a] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                  value=""
+                />
+              </div>
+            </label>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBslbh9A9hckbSlJJ9jFG9feSi4qPvhkr1ZOLvOAd8_S3WPJODKlavWlt-v17z_odoNMA2c-xRebJvIHniddlFuXwRhyCWF15E4MgyBqPDm8tLA8R8ag80UkbeU102492lFQAl9XmfjUcN8QqEO-sEGa-1RwpB6GrNxZPcEBk700GIf4WzHO3ZpUM25MwzIDUOwpODmtgbAl1pt7-Htrw1Xt2-XMXUl3FPUUQ7vdbFbUzEGtsUS0T7sa9S4-7xEJRTqowUoNyx2aHOH");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5 pt-16">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="px-4 py-3">
+              <label class="flex flex-col min-w-40 h-12 w-full">
+                <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                  <div
+                    class="text-[#60758a] flex border-none bg-[#f0f2f5] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                    data-icon="MagnifyingGlass"
+                    data-size="24px"
+                    data-weight="regular"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    placeholder="Search for resources"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f5] focus:border-none h-full placeholder:text-[#60758a] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                    value=""
+                  />
+                </div>
+              </label>
+            </div>
+            <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Trending Resources</h2>
+            <div class="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+              <div class="flex items-stretch p-4 gap-3">
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAT71nDIldwMeCQWkMxzPv1Z1iG-XvJ2PZgPhYSgskI0S1q1e8XeprMcNlh4BVLASIiTKXisl_TR43b2K-QDHlrDdBW7tfe3cbVeMC0kG6G36XT9FX5Y9tYhkgPUpK3ojWOc8rNqQYUZ5dzwJDTzrq9pgs2aVQQQzvdPjhnPfV1DHJUrXZknsyCCKivsC0hjfduJQ1nYQLHtNYvp_kngQoPnohgiwuM8Asm4WCk4omSUwVxaSfVNH5ncq4kpbz85RVmIN-YMpGdRNlb");'
+                  ></div>
+                  <p class="text-[#111418] text-base font-medium leading-normal">Introduction to Calculus</p>
+                </div>
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwZbr6-ByI-yaXeqICiQobDYYXkoMJu-LeD3EeF92Uvt4qjAi3H3wv9oAurLKU_7TifoAw-Vyn3arP84hm-NxDMzh03XlNrdfpFKoP4K6UN2IwIPphXn0fkfMxfsQGAjhz8JueGdorTNcxSS489fgkDG86baynXJggSHrdrSCmxM1SS6_p2NPPzQUdGLIYbh2Ba8lzcZzaKgAzL2Efo9BgHmgxhLaPDsrKQhlc0c_PIl3KvYA9ehf8V1JxIfOnhbGBD_vOsb_YJlzs");'
+                  ></div>
+                  <p class="text-[#111418] text-base font-medium leading-normal">Lecture Notes: Organic Chemistry</p>
+                </div>
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjytch7pU84nc4ZXRFy-rIW4JdG0mqwyA2bidzS_ekPNG6RWKD6HYH7737ux1O-_GGOS4OKU8ZXpagcG-YFCKd3Rv9-J4k9BuyqhZiMG3ZCJgpeHtywZS4OwpbVq5QvBFNGP9qo4jFDjHmqhBYbfE6yeHYpo1K1VEseeFtIsSjTI-33GVClgFhTlI4Cb5c7SBdi_W9QxeKEw4b8Oxoz1Kqv7nKd4jALgXGEh-ARa65JAZVZwhgu6ZZS3usKB0EZWvJ3_Ls9DvbXniC");'
+                  ></div>
+                  <p class="text-[#111418] text-base font-medium leading-normal">Past Exam Papers: Physics 101</p>
+                </div>
+                <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAiORNUkQyuSpWZ1ywkIOohB1MGtV_hKNOyQMj09vkDFzV-vKibYv1QWUAPHUeMA8_YcWigwWwsGPHsHTytyc6IyU4JXj1L_q_0XxQoAZ_LDL7xM4oLMFyprlCjVi74ALc5xbaqeq4fhqdveyfy5u-4GNo_pbysBdHmkkYsjKfvTU7e_BrXign9bnyRr2w3QbULXpLPfPizIBlNwIlsSclZAPufldJHctoo6LPjXY6VK81c2A2VV0F-fC8Xav9Gju5ZEXUEHyMLYmsB");'
+                  ></div>
+                  <p class="text-[#111418] text-base font-medium leading-normal">Study Guide: History of Art</p>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Browse by Category</h2>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDQTlABaSM-lO1OGrXjtyki-RD8vPALQMVwAJt7d_PMSeP8kWEnxwc-uUfnFq8qrs-FJqM2IzNz-gaOkEevqOINuiQX0KByFc0u99O04uuOtobwHrw4HdQ_kzeuqlU4k2uusXOqruOzscUp3zDOGrXwKuY1c_ZLhfQMFOH0hAtEpG827koQgGF2MqTY_4WCTUK3QBmRZ2Nn4xvEIXr9Jey_2WVCwmb4K0VbmxGJFhY1RD0k32dTVLDbkasHb8vohC0Ft3ilL090H8DB");'
+                ></div>
+                <p class="text-[#111418] text-base font-medium leading-normal">Mathematics</p>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA5jjZp17Io78iRLlxuxsJYrut1eHzHeb5FfcmOS0UMvXNxgITXwXiwtMJZhK--6auMTRLfDUT5x1ztFsa7BKP8q1w3LijjbwrKnPUXO2oxVeTPex2x6uiixMqqNj-OITd4u3dGSh0W0U98TRq-BpTjGDBirqwm6BHMpK8FUtxJ54CjBRnq68pOIT71K3xQEtBxJZjx2Xs8NuJMG6cNfEK6CQX__XRRCOsydrs5QtW-SQ7cUcnJZCdjKPWbeMdM8SuIGNZAWSpAvaxz");'
+                ></div>
+                <p class="text-[#111418] text-base font-medium leading-normal">Science</p>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAX73Rpx6iCEhYJ95e_NBwrFI8inMPX1lwVIvO4HRIPq964nfigeJqDiQafvfk6mByBkBOmUokiQf3APOsQtZ5bljE5MHAOCoqYx38OjOHgmY1Ic-lpmpWwTspiZIJzCHnTrDHFnXqoIwKAi1aDxaet0mUlDAc_FNycccTY5Oz7zYLQh4IdLAOFOErTN1b0v16YfzP1LBsm_x-XjQF8QGP6OQwIuwuuotr107EdpGzlJhljKLBzGNdQItvSwS42zu1YZXkBhEtmdcmE");'
+                ></div>
+                <p class="text-[#111418] text-base font-medium leading-normal">Humanities</p>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdyMv6CDqhB4hwQgOVM8E2VEYKtH2FBaryeoRb53EmkLbsitD2_ZskbcYA9EU7oQZbqP3OvMkynjN7Zol6Ta7XGZylOebCduX8mmLBcyx3hBWJN3tSCRBnNMLVmdHIoG04vJJc1MG8JJIjhdlEmZOm8NWLQpo-6SjnfpsxNp7_SH_z8hZLluUK0AZ05U03kPuJBR676CKRrflek93D6TMB75aIwU2SAM20qbvU2U3IiutscCKpVinzqTfVod8dgbggsl7FxHs38jGy");'
+                ></div>
+                <p class="text-[#111418] text-base font-medium leading-normal">Social Sciences</p>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA0Mq8xhsOYhFPpkVAUPFRqF5LUDRrQWZb0faQMlxZR4oemgHC4NLigwTXZLp0vo2s3dH0rErkhN1dEBIkOgS-wwNjbJSeZhNnJZLc39Uos3ie4mb87HuCb8AGTVzcMBdZOPRJGY3JuNkwo1GNXcxHcx3moS6WWYvANn2yZldx-kcm9xh1IhoFZ2N2Fdl2APsySSo3dJIihJlGLfVkeyyDo6HdLiB2yXcOTKvvrrXtzehECpVbADibx5ILQREAFMutraonpT8dE7yiO");'
+                ></div>
+                <p class="text-[#111418] text-base font-medium leading-normal">Engineering</p>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEALwNOrCoteqVVH38Xk2JZ2Kg56KBWbnmheBfvDNd6ZPTVhs1t3HdHl7i4B77kIZoI5bDXCOitZ8Y11bfS5owxT8aF208hAH9srU1DbBmKXX_0fswL5jFGm3ibGsgcQZhXmYg4Mrn8qFgfDnxCtqUSpG5GUvawEaoii5mUbn569o9u9Xu7kOhDFL1qVJGkaSUC-Dp09uKSJDrjjVddJ8J-8xAQ-k6VOHKMT_-pU160pXdMMvptbyqRQa1CQ0uWpL7NSBHuMdBdolk");'
+                ></div>
+                <p class="text-[#111418] text-base font-medium leading-normal">Business</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white text-center p-4 w-full">
+          &copy; 2025 MnitStudyHub
+        </footer>   
+      </div>
+    </div>
+
+
+  </body>
+</html>
