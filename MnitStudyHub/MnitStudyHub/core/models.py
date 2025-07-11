@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.utils.text import slugify
 
 def validate_file_extension(value):
     import os
@@ -36,9 +37,15 @@ class Category(models.Model):
         ('3rd', '3rd Year'),
         ('4th', '4th Year'),
     ]
-    title = models.CharField(max_length=200)
+    year = models.CharField(max_length=200)
+    slug = models.SlugField(blank=True)
     description = models.TextField()
-    image = models.ImageField(upload_to='category_images/', default='default.jpg')
+    image = models.ImageField(upload_to='category_images/')
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.year)
+        super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.title
+        return self.year

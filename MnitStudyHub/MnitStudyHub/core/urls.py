@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 urlpatterns = [
 
     path('', views.BrowseResources, name='BrowseResources'),
+    path('<slug:slug>/', views.category_resources, name='category_resources'),
 
     # path("__reload__/", include("django_browser_reload.urls")),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]

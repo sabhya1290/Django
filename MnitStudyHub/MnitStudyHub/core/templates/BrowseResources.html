@@ -19,15 +19,13 @@
     <div class="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md hover:shadow-lg transition mx-5">
         <div class="relative mx-4 mt-2 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
         <img
-            src="{{ res.image.url }}"
-            alt="img-blur-shadow"
-            layout="fill"
+            src={{ res.image.url }}
             class="w-full h-full object-cover"
             />
         </div>
         <div class="p-6">
         <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-            {{ res.title }}
+            {{ res.year }}
         </h5>
         <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
             {{ res.description }}
@@ -38,22 +36,11 @@
             class="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
             data-ripple-light="true"
-        >
+        ><a href="{% url 'category_resources' slug=res.slug %}">
             Read More
-        </button>
-        </div>
+        </a></button>
+        </div> 
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
-</div>
-
-<!-- stylesheet -->
-<link
-rel="stylesheet"
-href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"
-/>
-
-<!-- Ripple Effect --> 
-<!-- from cdn -->
-<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
 {% endblock %}
