@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold text-center mb-6 text-indigo-600">📚 Browse Resources</h1>
+
+  <!-- Search bar -->
+  <div class="flex justify-center mb-8">
+    <input
+      type="text"
+      placeholder="Search by subject, title, or tag"
+      class="w-full max-w-xl px-4 py-2 border rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    />
+  </div>
+
+
+<div class="flex justify-center">
+    {% for res in categories %}
+    <div class="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md hover:shadow-lg transition mx-5">
+        <div class="relative mx-4 mt-2 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
+        <img
+            src="{{ res.image.url }}"
+            alt="img-blur-shadow"
+            layout="fill"
+            class="w-full h-full object-cover"
+            />
+        </div>
+        <div class="p-6">
+        <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+            {{ res.title }}
+        </h5>
+        <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+            {{ res.description }}
+        </p>
+        </div>
+        <div class="p-6 pt-0">
+        <button
+            class="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+            data-ripple-light="true"
+        >
+            Read More
+        </button>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+<!-- stylesheet -->
+<link
+rel="stylesheet"
+href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"
+/>
+
+<!-- Ripple Effect --> 
+<!-- from cdn -->
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
+{% endblock %}
