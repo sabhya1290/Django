@@ -14,13 +14,46 @@ def validate_file_extension(value):
 
 # Create your models here.
 class Resource(models.Model):
+    DEPARTMENT_CHOICES = [
+        ('AI&DS', 'Artificial Intelligence & Data Science'),
+        ('cse', 'Computer Science & Engineering'),
+        ('ee', 'Electrical Engineering'),
+        ('me', 'Mechanical Engineering'),
+        ('ce', 'Civil Engineering'),
+        ('che', 'Chemical Engineering'),
+        ('mme', 'Metallurgical & Materials Engineering'),
+        ('ece', 'Electronics & Communication Engineering'),
+        ('arch', 'Architecture & Planning'),
+    ]
+    SUBJECT_CHOICES = [
+        ('chem', 'Chemistry'),
+        ('math1', 'Mathematics I'),
+        ('ECT', 'Basic Electronics Engineering'),
+        ('BEE', 'Basic Electrical Engineering'),
+        ('py','Python'),
+        ('TC','Technical Communication(English)'),
+        ('math2', 'Mathematics II'),
+        ('IMS','Introduction to mechanical system'),
+        ('phy', 'Physics'),
+        ('BE','Basic Economics'),
+        ('DS','Data Structure'),
+        ('C','C Programming'),
+        ('DM','Discrete Mathematics'),
+        ('MAI','Mathematics with AI'),
+
+        ('other', 'Other'),
+    ]
+
+
     title = models.CharField(max_length=200)
     description = models.TextField()
     file = models.FileField(upload_to='resources/', validators=[validate_file_extension])
-    subject = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100, choices=SUBJECT_CHOICES)
     year = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
+    department = models.CharField(max_length=40, choices=DEPARTMENT_CHOICES, default='cse')
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    subject_other = models.CharField(max_length=100, blank=True, null=True, help_text='If you selected Other, please specify.')
 
     class Meta:
         constraints = [
