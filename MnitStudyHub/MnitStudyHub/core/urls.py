@@ -9,6 +9,6 @@ urlpatterns = [
 
     path('', views.BrowseResources, name='BrowseResources'),
     path('<slug:slug>/', views.category_resources, name='category_resources'),
-
+    
     # path("__reload__/", include("django_browser_reload.urls")),
 ]

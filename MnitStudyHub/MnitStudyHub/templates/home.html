@@ -1,32 +1,5 @@
-{% load static tailwind_tags %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MnitStudyHub – Student Resource Sharing Platform</title>
-  {% tailwind_css %}
-  <style>
-    html, body {
-      height: 100%;
-    }
-  </style>
-</head>
-<body class="flex flex-col min-h-screen bg-gray-100 text-gray-800">
-
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-indigo-600">MnitStudyHub</h1>
-      <div class="space-x-6">
-        <a href="#" class="text-gray-600 hover:text-indigo-600">Home</a>
-        <a href="#" class="text-gray-600 hover:text-indigo-600">Resources</a>
-        <a href="#" class="text-gray-600 hover:text-indigo-600">Upload</a>
-        <a href="#" class="text-gray-600 hover:text-indigo-600">Login</a>
-      </div>
-    </div>
-  </nav>
-
+{% extends 'layout.html' %}
+{% block content %}
   <!-- Main content -->
   <main class="flex-grow">
 
@@ -63,15 +36,4 @@
         <marquee behavior="" direction=""><a href="{% url 'future_temp' %}" class="bg-gray-300 text-white px-6 py-3 rounded-full font-medium hover:bg-indigo-700 transition">Click here to view future features</a></marquee>
     </section>
 
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <p>&copy; 2025 MnitStudyHub. All rights reserved.</p>
-    </div>
-  </footer>
-
-</body>
-</html>
+{% endblock %}

@@ -72,3 +72,17 @@ class Subject(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.get_year_display()})"
+
+
+class StudentProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    YEAR_CHOICES = [
+        ('1st Year', '1st Year'),
+        ('2nd Year', '2nd Year'),
+        ('3rd Year', '3rd Year'),
+        ('4th Year', '4th Year'),
+    ]
+    year = models.CharField(max_length=10, choices=YEAR_CHOICES)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.year}"
