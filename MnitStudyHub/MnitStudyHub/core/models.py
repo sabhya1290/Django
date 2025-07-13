@@ -25,30 +25,11 @@ class Resource(models.Model):
         ('ece', 'Electronics & Communication Engineering'),
         ('arch', 'Architecture & Planning'),
     ]
-    SUBJECT_CHOICES = [
-        ('chem', 'Chemistry'),
-        ('math1', 'Mathematics I'),
-        ('ECT', 'Basic Electronics Engineering'),
-        ('BEE', 'Basic Electrical Engineering'),
-        ('py','Python'),
-        ('TC','Technical Communication(English)'),
-        ('math2', 'Mathematics II'),
-        ('IMS','Introduction to mechanical system'),
-        ('phy', 'Physics'),
-        ('BE','Basic Economics'),
-        ('DS','Data Structure'),
-        ('C','C Programming'),
-        ('DM','Discrete Mathematics'),
-        ('MAI','Mathematics with AI'),
-
-        ('other', 'Other'),
-    ]
 
 
     title = models.CharField(max_length=200)
-    description = models.TextField()
     file = models.FileField(upload_to='resources/', validators=[validate_file_extension])
-    subject = models.CharField(max_length=100, choices=SUBJECT_CHOICES)
+    subject = models.ForeignKey('Subject', on_delete=models.CASCADE)
     year = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
     department = models.CharField(max_length=40, choices=DEPARTMENT_CHOICES, default='cse')
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
@@ -82,3 +63,12 @@ class Category(models.Model):
 
     def __str__(self):
         return self.year
+
+
+class Subject(models.Model):
+    code = models.CharField(max_length=20, unique=True)
+    name = models.CharField(max_length=200)
+    year = models.IntegerField(choices=[(1, '1st Year'), (2, '2nd Year'), (3, '3rd Year'), (4, '4th Year')])
+
+    def __str__(self):
+        return f"{self.name} ({self.get_year_display()})"
