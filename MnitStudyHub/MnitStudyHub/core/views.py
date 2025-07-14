@@ -20,7 +20,7 @@ def category_resources(request, slug):
     if query:
         resources = resources.filter(
             Q(title__icontains=query) |
-            Q(subject__icontains=query) |
+            Q(subject__name__icontains=query) |
             Q(department__icontains=query)
         )
 
