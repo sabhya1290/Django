@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="max-w-lg mx-auto mt-10 bg-white p-6 rounded shadow">
+  <h2 class="text-2xl font-bold mb-4">Upload Notes</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Title" class="w-full mb-3 px-3 py-2 border rounded" required>
+    <input type="file" name="file" class="w-full mb-3 px-3 py-2 border rounded" required>
+    <select name="subject" class="w-full mb-3 px-3 py-2 border rounded" required>
+      <option value="">Select Subject</option>
+      {% for subject in subjects %}
+        <option value="{{ subject.id }}">{{ subject.name }}-{{subject.year}} year</option>
+      {% endfor %}
+    </select>
+    <select name="year" class="w-full mb-3 px-3 py-2 border rounded" required>
+      <option value="">Select Year</option>
+      <option value="1">1st Year</option>
+      <option value="2">2nd Year</option>
+      <option value="3">3rd Year</option>
+      <option value="4">4th Year</option>
+    </select>
+    <select name="department" class="w-full mb-3 px-3 py-2 border rounded" required>
+      <option value="">Select Department</option>
+      {% for code, name in departments %}
+        <option value="{{ code }}">{{ name }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" class="bg-indigo-600 text-white w-full py-2 rounded">Upload</button>
+    {% if error %}<p class="text-red-500 mt-2">{{ error }}</p>{% endif %}
+    {% if success %}<p class="text-green-500 mt-2">{{ success }}</p>{% endif %}
+  </form>
+</div>
+{% endblock %}

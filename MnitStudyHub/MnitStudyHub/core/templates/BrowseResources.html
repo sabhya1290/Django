@@ -1,8 +1,8 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="max-w-7xl mx-auto px-4 py-8">
-  <h1 class="text-3xl font-bold text-center mb-6 text-indigo-600">📚 Browse Resources</h1>
+<div class="max-w-7xl mx-auto px-4 py-8 ">
+  {% comment %} <h1 class="text-3xl font-bold text-center mb-6 text-indigo-600">📚 Browse Resources</h1>
 
   <!-- Search bar -->
   <div class="flex justify-center mb-8">
@@ -11,10 +11,10 @@
       placeholder="Search by subject, title, or tag"
       class="w-full max-w-xl px-4 py-2 border rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
     />
-  </div>
+  </div> {% endcomment %}
 
 
-<div class="flex justify-center">
+<div class="flex justify-center items-center">
     {% for res in categories %}
     <div class="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md hover:shadow-lg transition mx-5">
         <div class="relative mx-4 mt-2 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">

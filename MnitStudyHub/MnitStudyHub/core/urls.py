@@ -8,7 +8,9 @@ from django.conf.urls.static import static
 urlpatterns = [
 
     path('', views.BrowseResources, name='BrowseResources'),
+    path('upload/', views.upload_pdf, name='upload_pdf'),
+    path('your_notes/', views.YourNotes, name='your_notes'),
+    path('your_notes/delete/<int:note_id>/', views.delete_note, name='delete_note'),
     path('<slug:slug>/', views.category_resources, name='category_resources'),
-    
     # path("__reload__/", include("django_browser_reload.urls")),
 ]
