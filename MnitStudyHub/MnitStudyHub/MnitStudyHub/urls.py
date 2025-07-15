@@ -26,7 +26,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('future_temp/', views.future_temp, name='future_temp'),
     path('resources/', include('core.urls')),
-    # path('accounts/', include('django.contrib.auth.urls')),
     path('login/', views.custom_login, name='login'),
     path('register/', views.custom_register, name='register'),
     path('logout/', views.custom_logout, name='logout'),

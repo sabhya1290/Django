@@ -78,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.target.classList.contains('pdf-preview-btn')) {
       e.preventDefault();
       const pdfUrl = e.target.getAttribute('data-pdf-url');
-      pdfFrame.src = pdfUrl;
+      const showToolbar = window.isUserAuthenticated ? 1 : 0;
+      pdfFrame.src = '/static/pdfjs/web/viewer.html?file=' + encodeURIComponent(pdfUrl) + '&showToolbar=' + showToolbar;
       pdfModal.classList.remove('hidden');
       pdfModal.classList.add('flex');
     }
@@ -116,3 +117,6 @@ function getCookie(name) {
   }
   return cookieValue;
 }
+
+
+pdfFrame.src = '/static/pdfjs/web/viewer.html?file=' + encodeURIComponent(pdfUrl) + '&showToolbar=' + showToolbar;

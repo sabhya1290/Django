@@ -21,29 +21,34 @@
     <div class="mb-10">
       <h2 class="text-2xl font-bold text-indigo-800 mb-3">🏛 {{ department }}</h2>
       {% for subject, resource_list in subjects.items %}
-        <div class="bg-white p-6 rounded-2xl shadow-md mb-6">
+        <div class="bg-white p-6 rounded-2xl shadow-md mb-6 hover:bg-gray-50 transition">
           <h3 class="text-xl font-semibold text-blue-700">{{ subject.name }}</h3>
           <ul class="mt-3 ml-4 list-disc text-sm text-gray-700">
             {% for resource in resource_list %}
+            <div class="flex justify-between items-center mb-1">
+              <div>
               <li class="mb-1 flex items-center gap-2">
-                <span>{{ resource.title }} —</span>
-                <a href="{{ resource.file.url }}" target="_blank" class="text-purple-600 underline hover:text-purple-800">View / Download</a>
+                <span>{{ resource.title }}—</span>
                 {% if resource.file and resource.file.name %}
-  <button type="button" class="pdf-preview-btn text-blue-600 underline ml-2" data-pdf-url="{% url 'pdf_view' resource.file.name %}">Preview</button>
-{% else %}
-  <span class="text-gray-400 ml-2">No PDF</span>
-{% endif %}
+                <button type="button" class="pdf-preview-btn text-blue-600 underline ml-2" data-pdf-url="{% url 'pdf_view' resource.file.name %}">Preview</button>
+              {% else %}
+                <span class="text-gray-400 ml-2">No PDF</span>
+              {% endif %}
                 <span>- uploaded by {{ resource.user.username }}</span>
+              </div>
+              <div class='text-[20px]'>
                 <button class="bookmark-btn ml-2" data-pdf-id="{{ resource.id }}">
                   <span id="bookmark-icon-{{ resource.id }}">
                     {% if resource.is_bookmarked %}
-                      ★  <!-- filled star for bookmarked -->
+                      ★  
                     {% else %}
-                      ☆  <!-- empty star for not bookmarked -->
+                      ☆  
                     {% endif %}
                   </span>
                 </button>
+              </div>
               </li>
+            </div>
             {% endfor %}
           </ul>
         </div>
@@ -54,11 +59,14 @@
   {% endfor %}
 
   </div>
-<!-- PDF Preview Modal -->
-<div id="pdfPreviewModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+
+<script>
+  window.isUserAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
+</script>
+<div id="pdfPreviewModal" class="fixed inset-0 flex items-center justify-center bg-[#515151c6] bg-opacity-50 z-50 hidden">
   <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-3xl relative">
     <button id="closePdfModal" class="absolute top-2 right-2 text-gray-700 hover:text-red-600 text-2xl">&times;</button>
-    <iframe id="pdfFrame" src="" width="100%" height="600px" class="rounded-b-lg"></iframe>
+    <iframe id="pdfFrame" width="100%" height="600px" class="rounded-b-lg"></iframe>
   </div>
 </div>
 

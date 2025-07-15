@@ -16,5 +16,5 @@ urlpatterns = [
     path('pdf/<path:path>/', views.pdf_view, name='pdf_view'),
     path('<slug:slug>/', views.category_resources, name='category_resources'),
     path('bookmark/<int:pdf_id>/', views.toggle_bookmark, name='toggle_bookmark'),
-    # path("__reload__/", include("django_browser_reload.urls")),
+
 ]

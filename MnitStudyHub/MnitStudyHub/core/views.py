@@ -8,6 +8,7 @@ import os
 from django.conf import settings
 from django.http import FileResponse
 from django.http import Http404
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 def BrowseResources(request):
@@ -92,7 +93,6 @@ def delete_note(request, note_id):
         return redirect('your_notes')
     return redirect('your_notes')
 
-from django.views.decorators.http import require_POST
 
 @require_POST
 @login_required
