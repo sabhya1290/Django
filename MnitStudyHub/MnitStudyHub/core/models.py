@@ -3,6 +3,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils.text import slugify
+from django.http import JsonResponse
 
 def validate_file_extension(value):
     import os
@@ -86,3 +87,20 @@ class StudentProfile(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.year}"
+
+
+
+class PDFResource(models.Model):
+    # your existing fields
+    title = models.CharField(max_length=255)
+    file = models.FileField(upload_to='pdfs/')
+    # ... other fields
+
+class Bookmark(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    pdf = models.ForeignKey(Resource, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'pdf')
+

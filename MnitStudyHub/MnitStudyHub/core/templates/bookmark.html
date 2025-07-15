@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="max-w-6xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-blue-800 mb-6">Saved Notes</h1>
+    <div id="uploaded_notes" class='flex justify-between'>
+    <p class="text-gray-600 mb-6">Here are your Bookmarks:</p>
+    {% comment %} <p><a href="{% url 'upload_pdf' %}" class="text-blue-600 hover:text-blue-800"></a></p> {% endcomment %}
+    </div>
+    <ul class="space-y-4">
+        {% for bookmark in bookmarks %}
+            <li class="bg-white p-4 rounded-lg shadow-md" id="bookmark-item-{{ bookmark.pdf.id }}">
+                <h2 class="text-xl font-semibold text-blue-700">{{ bookmark.pdf.title }}</h2>
+                <p class="text-gray-600">Uploaded on: {{ bookmark.created_at }}</p>
+                <div id="pdf" class="flex justify-between">
+                    <a href="{{ bookmark.pdf.file.url }}" target="_blank" class="text-blue-600 hover:text-blue-800">View / Download</a>
+                    <form method="post" action="{% url 'delete_bookmark' bookmark.pdf.id %}" class="inline">
+                        {% csrf_token %}
+                        <button type="submit" class="ml-4 text-yellow-600 hover:text-yellow-800 remove-bookmark-btn">Remove Bookmark</button>
+                        <span class="remove-spinner hidden ml-2">⏳</span>
+                    </form>
+                </div>
+            </li>
+        {% empty %}
+            <p class="text-gray-500">No notes found.</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

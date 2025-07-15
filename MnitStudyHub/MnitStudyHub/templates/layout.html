@@ -13,8 +13,17 @@
           <h1 class="text-2xl font-bold text-indigo-600">MnitStudyHub</h1>
           <div class="space-x-6 flex items-center">
             <a href="{% url 'home' %}" class="text-gray-600 hover:text-indigo-600">Home</a>
-            <a href="{% url 'upload_pdf' %}" class="text-gray-600 hover:text-indigo-600">Upload Notes</a>
-            <a href="{% url 'your_notes' %}" class="text-gray-600 hover:text-indigo-600">Your Notes</a>
+            <div class="relative group">
+              <button class="text-gray-600 hover:text-indigo-600 focus:outline-none flex items-center">
+                Notes
+                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50">
+                <a href="{% url 'your_notes' %}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Your Notes</a>
+                <a href="{% url 'bookmark' %}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Saved Notes</a> 
+                <a href="{% url 'upload_pdf' %}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Upload Notes</a>
+              </div>
+            </div>
             {% if user.is_authenticated %}
           <form method="post" class="flex items-center text-[#49108B]"  action="{% url 'logout' %}" id="logout-form">
             {% csrf_token %}
@@ -44,6 +53,7 @@
     </div>
   </footer>
 
+  {% include 'login_modal.html' %}
 </body>
 <!-- Logout Confirmation Modal -->
 <div id="logoutModal" class="fixed z-50 inset-0 flex items-center justify-center bg-[#6b6b6c80] bg-opacity-50 hidden">
