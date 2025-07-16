@@ -9,34 +9,76 @@
 </head>
 <body class="flex flex-col min-h-screen bg-[#F3F8FF]">
     <nav class="bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 class="text-2xl font-bold text-indigo-600">MnitStudyHub</h1>
-          <div class="space-x-6 flex items-center">
-            <a href="{% url 'home' %}" class="text-gray-600 hover:text-indigo-600">Home</a>
-            <div class="relative group">
-              <button class="text-gray-600 hover:text-indigo-600 focus:outline-none flex items-center">
-                Notes
-                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-              </button>
-              <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50">
-                <a href="{% url 'your_notes' %}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Your Notes</a>
-                <a href="{% url 'bookmark' %}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Saved Notes</a> 
-                <a href="{% url 'upload_pdf' %}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Upload Notes</a>
-              </div>
-            </div>
-            {% if user.is_authenticated %}
-          <form method="post" class="flex items-center text-[#49108B]"  action="{% url 'logout' %}" id="logout-form">
-            {% csrf_token %}
-            <p>Hii {{ user.username }}</p>
-            <button class="bg-red-500 text-white px-4 py-2 rounded mx-2" type="submit" id='logouBtn'>Logout</button>
-          </form>
-          {% else %}
-          <a href="{% url 'register' %}" class="bg-green-500 text-white px-4 py-2 rounded mx-2">Sign Up</a>
-          <a href="{% url 'login' %}" class="bg-blue-500 text-white px-4 py-2 rounded mx-2">Login</a>
-          {% endif %}
-          </div>
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-indigo-600">
+      <a href="{% url 'home' %}">MnitStudyHub</a>
+    </h1>
+    <!-- Hamburger for mobile -->
+    <button id="navbar-toggle" class="md:hidden text-3xl text-indigo-600 focus:outline-none" aria-label="Toggle menu">
+      &#9776;
+    </button>
+    <!-- Main nav -->
+    <div id="navbar-menu" class="hidden md:flex md:space-x-6 flex-col md:flex-row md:items-center w-full md:w-auto absolute md:static left-0 top-16 md:top-auto bg-white md:bg-transparent z-40 md:z-auto shadow md:shadow-none">
+      <a href="{% url 'BrowseResources' %}" class="block px-4 py-2 text-gray-600 hover:text-indigo-600">Home</a>
+      <div class="relative group">
+        <button id="notes-toggle" type="button" class="px-4 text-gray-600 hover:text-indigo-600 focus:outline-none flex items-center w-full">
+          Notes
+          <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="notes-dropdown" class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-50">
+          <a href="{% url 'your_notes' %}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Your Notes</a>
+          <a href="{% url 'bookmark' %}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Saved Notes</a>
+          <a href="{% url 'upload_pdf' %}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Upload Notes</a>
         </div>
-      </nav>
+      </div>
+      {% if user.is_authenticated %}
+      <form method="post" class="flex items-center text-[#49108B]"  action="{% url 'logout' %}" id="logout-form">
+        {% csrf_token %}
+        <p class="px-4 py-2">Hii {{ user.username }}</p>
+        <button class="bg-red-500 text-white px-4 py-2 rounded mx-2" type="submit" id='logouBtn'>Logout</button>
+      </form>
+      {% else %}
+      <a href="{% url 'register' %}" class="bg-green-500 text-white px-4 py-2 rounded mx-2">Sign Up</a>
+      <a href="{% url 'login' %}" class="bg-blue-500 text-white px-4 py-2 rounded mx-2">Login</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+<script>
+  // Hamburger toggle and Notes dropdown (click for all devices)
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('navbar-toggle');
+    const menu = document.getElementById('navbar-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', function() {
+        menu.classList.toggle('hidden');
+      });
+    }
+
+    // Notes dropdown toggle for all devices
+    const notesToggle = document.getElementById('notes-toggle');
+    const notesDropdown = document.getElementById('notes-dropdown');
+    let isDropdownOpen = false;
+    if (notesToggle && notesDropdown) {
+      notesToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        isDropdownOpen = !isDropdownOpen;
+        notesDropdown.classList.toggle('opacity-0', !isDropdownOpen);
+        notesDropdown.classList.toggle('pointer-events-none', !isDropdownOpen);
+        notesDropdown.classList.toggle('opacity-100', isDropdownOpen);
+        notesDropdown.classList.toggle('pointer-events-auto', isDropdownOpen);
+      });
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!notesDropdown.contains(e.target) && !notesToggle.contains(e.target)) {
+          isDropdownOpen = false;
+          notesDropdown.classList.add('opacity-0', 'pointer-events-none');
+          notesDropdown.classList.remove('opacity-100', 'pointer-events-auto');
+        }
+      });
+    }
+  });
+</script>
 
       <main class="flex-grow text-[#49108B]">
         <div id="class">

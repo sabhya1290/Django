@@ -5,3 +5,4 @@ from .models import Resource, Category, Subject
 admin.site.register(Resource)
 admin.site.register(Category)
 admin.site.register(Subject)
+

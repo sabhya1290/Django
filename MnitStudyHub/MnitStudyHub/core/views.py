@@ -45,6 +45,39 @@ def category_resources(request, slug):
 
     return render(request, 'subjects.html', {'branch': branch, 'resources': grouped_data})
 
+
+def architecture_and_planning(request):
+    categories = ArchitectureAndPlanning.objects.all()
+    return render(request, 'achitecturePlanning.html', {'categories': categories})
+
+def architecture_and_planning_resources(request, slug):
+    branch = get_object_or_404(ArchitectureAndPlanning, slug=slug)
+    query = request.GET.get('q', '')
+    year = branch.year
+    resources = Resource.objects.filter(year=year[0])
+
+    if query:
+        resources = resources.filter(
+            Q(title__icontains=query) |
+            Q(subject__name__icontains=query) |
+            Q(department__icontains=query)
+        )
+
+    grouped_data = defaultdict(lambda: defaultdict(list))
+
+    user = request.user if request.user.is_authenticated else None
+    bookmarks = set()
+    if user:
+        bookmarks = set(Bookmark.objects.filter(user=user, pdf_id__in=resources.values_list('id', flat=True)).values_list('pdf_id', flat=True))
+
+    for res in resources:
+        res.is_bookmarked = res.id in bookmarks
+        grouped_data[res.get_department_display()][res.subject].append(res)
+    grouped_data = {dept: dict(subjects) for dept, subjects in grouped_data.items()}
+
+    return render(request, 'subjects.html', {'branch': branch, 'resources': grouped_data})
+
+
 @login_required
 def upload_pdf(request):
     departments = Resource.DEPARTMENT_CHOICES
